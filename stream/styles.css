@@ -1,0 +1,143 @@
+/* Custom Styles */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom scrollbar for results grid */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Transitions for View switching */
+.view-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.view-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+}
+
+.view-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Result Card Hover Effect */
+.result-card {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.result-card:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+/* Heavy Gradient for Detail View */
+.hero-gradient {
+  background: linear-gradient(to top, #000000 10%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Netflix Plyr Theme */
+:root {
+  --plyr-color-main: #E50914;
+  --plyr-video-controls-background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+}
+
+/* Custom Netflix Spinner */
+.netflix-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(229, 9, 20, 0.2);
+  border-top-color: #E50914;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Title Overlay for Plyr */
+.plyr__title-overlay {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 50;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Show title overlay when controls are active or paused */
+.plyr--active.plyr--hover .plyr__title-overlay,
+.plyr--active.plyr--paused .plyr__title-overlay,
+.plyr--control-pressed .plyr__title-overlay {
+  opacity: 1;
+}
+
+/* Error Overlay */
+.plyr-error-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  text-align: center;
+}
+
+/* Fix Plyr Layout so it fills the modal perfectly */
+.plyr {
+  width: 100%;
+  height: 100%;
+}
+.plyr__video-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plyr video {
+  max-height: 100%;
+}
