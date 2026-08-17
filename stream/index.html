@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Streaming Discovery</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <meta name="description" content="Discover movies and series and play them through your configured Real-Debrid account.">
+  <title>Stream Discovery</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/plyr.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-black text-white min-h-screen overflow-x-hidden">
   <div id="app" class="relative w-full min-h-screen">
-    <!-- View containers will be injected here by app.js -->
+    <noscript>This application requires JavaScript.</noscript>
   </div>
+  <script src="vendor/dash.js" defer></script>
+  <script src="vendor/plyr.js" defer></script>
   <script type="module" src="app.js"></script>
 </body>
 </html>

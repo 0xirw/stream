@@ -1,0 +1,26 @@
+{
+  "name": "stream",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A small Cinemeta and Torrentio browser with server-side Real-Debrid playback.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./stream/styles.input.css -o ./stream/styles.css --minify",
+    "copy:assets": "node scripts/copy-assets.js",
+    "build": "npm run copy:assets && npm run build:css",
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "dashjs": "5.2.0",
+    "fflate": "0.8.3",
+    "plyr": "3.8.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

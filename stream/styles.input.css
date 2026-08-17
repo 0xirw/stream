@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { color-scheme: dark; }
+html, body { min-height: 100%; overscroll-behavior-y: none; }
+button, input { touch-action: manipulation; }
+.custom-scrollbar { scrollbar-color: #333 #1a1a1a; scrollbar-width: thin; }
+.custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+.view-container { position: absolute; inset: 0 auto auto 0; width: 100%; min-height: 100vh; transition: opacity .4s ease, transform .4s ease; }
+.view-hidden { opacity: 0; pointer-events: none; transform: scale(.98); }
+.view-visible { opacity: 1; pointer-events: auto; transform: scale(1); }
+.result-card { transition: background-color .2s ease, transform .2s ease; }
+.result-card:hover { background-color: #1a1a1a; transform: translateY(-2px); }
+.season-active { border-color: white !important; background: white !important; color: black !important; }
+.episode-active { border-color: #3b82f6 !important; background: #1f2937 !important; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { width: 24px; height: 24px; border: 3px solid rgb(255 255 255 / .1); border-left-color: white; border-radius: 9999px; animation: spin 1s linear infinite; }
+.netflix-spinner { width: 60px; height: 60px; border: 4px solid rgb(229 9 20 / .2); border-top-color: #e50914; border-radius: 9999px; animation: spin 1s linear infinite; }
+.hero-gradient { background: linear-gradient(to top, #000 10%, rgb(0 0 0 / .85) 50%, rgb(0 0 0 / .6)); }
+:root { --plyr-color-main: #e50914; --plyr-video-controls-background: linear-gradient(transparent, rgb(0 0 0 / .7)); }
+.plyr-error-overlay { position: absolute; inset: 0; z-index: 60; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgb(0 0 0 / .9); color: white; text-align: center; padding: 2rem; }
+.plyr-error-overlay.hidden { display: none; }
+.plyr__title-overlay { position: absolute; top: 20px; left: 30px; z-index: 50; color: white; font-size: 1.5rem; font-weight: 700; text-shadow: 0 2px 6px #000; opacity: 0; transition: opacity .3s; pointer-events: none; }
+.plyr--active.plyr--hover .plyr__title-overlay, .plyr--active.plyr--paused .plyr__title-overlay { opacity: 1; }
+.plyr, .plyr__video-wrapper { width: 100%; height: 100%; }
+.plyr__video-wrapper { display: flex; align-items: center; justify-content: center; }
+.plyr video { max-height: 100%; }
+.mobile-close-button { top: max(1rem, env(safe-area-inset-top)); right: max(1rem, env(safe-area-inset-right)); }
+
+@media (max-width: 640px) {
+  .view-container { padding-left: max(.75rem, env(safe-area-inset-left)); padding-right: max(.75rem, env(safe-area-inset-right)); }
+  .mobile-video-modal { height: 100dvh; }
+  .plyr__controls { padding: 10px max(8px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)); gap: 2px; }
+  .plyr__control { min-width: 40px; min-height: 40px; }
+  .plyr__controls [data-plyr="rewind"],
+  .plyr__controls [data-plyr="fast-forward"],
+  .plyr__volume { display: none !important; }
+  .plyr__progress__container { min-width: 0; }
+  .plyr__title-overlay { top: max(16px, env(safe-area-inset-top)); left: max(14px, env(safe-area-inset-left)); right: 64px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 1rem; }
+  .plyr__captions { bottom: calc(52px + env(safe-area-inset-bottom)); font-size: clamp(1rem, 4.5vw, 1.35rem); padding: 0 6px; }
+  .plyr__caption { line-height: 1.45; }
+}
